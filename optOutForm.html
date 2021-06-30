@@ -1,0 +1,86 @@
+
+
+<!-- Optout Form -->
+<template>
+    <template if:false={showNotification}>
+
+
+        <div class="slds-text-heading_large slds-align_absolute-center">Sample Opt-Out Request</div>
+
+        <div class="slds-text-align_center slds-text-body_regular slds-p-around_medium">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce luctus orci vestibulum sodales sagittis. <br/>
+            Ut metus risus, egestas eget neque eu, facilisis sagittis neque. Proin mattis sed urna a dictum. Phasellus id tincidunt urna. Curabitur nisi mi,
+            You can find more details in our
+
+            <lightning-formatted-url class="slds-p-around_xxx-small" value="https://google.com" tooltip="https://google.com" label="Privacy Policy" target="_blank" ></lightning-formatted-url>.
+
+        </div>
+
+        <div class="slds-align_absolute-center">
+
+            <div class="slds-grid slds-grid_vertical" style="width: 50%">
+                <div class="slds-col" >
+                    <lightning-input class="slds-p-around_small" label="First Name" value={firstName} onchange={handleFirst} required="true"></lightning-input>
+                </div>
+
+                <div class="slds-col">
+                    <lightning-input class="slds-p-around_small" label="Last Name" value={lastName} onchange={handleLast} required="true"></lightning-input>
+                </div>
+
+                <div class="slds-col">
+                    <lightning-input class="slds-p-around_small" label="Company" onchange={handleCompany} value={company}></lightning-input>
+                </div>
+
+                <div class="slds-col">
+                    <lightning-input class="slds-p-around_small" label="Email" value={email} onchange={handleEmail} required="true"></lightning-input>
+                </div>
+
+                <div class="slds-col">
+                    <lightning-textarea class="slds-p-around_small" label="Description" value={description} onchange={handleDesc} required="false"></lightning-textarea>
+                </div>
+
+                <div class="slds-col">
+                    <lightning-combobox class="slds-p-around_small" label="Reason for request" onchange={handleReason} value={reason}
+                                        options={options}
+                                        required
+                    ></lightning-combobox>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-text-align_center slds-text-body_regular slds-p-around_medium">
+
+            Integer egestas dignissim risus, in tempor lorem congue eget. Maecenas varius tellus augue, sit amet mollis nulla accumsan eu. Fusce dictum erat orci, tincidunt blandit augue tristique a. Suspendisse et porttitor ex. <br/> Phasellus ac gravida eros. Ut a ligula egestas, ultrices justo et, cursus quam. Suspendisse aliquam lectus eget est rhoncus consequat.  <br/> malesuada eros ut justo lobortis, ac faucibus nulla hendrerit.
+
+            Nam posuere dolor in finibus placerat. Quisque lacinia a quam commodo:
+
+
+            <lightning-input type="checkbox" class="slds-p-top_medium strong-text"  label="I agree to receive other communications." onchange={handleCheckbox}> </lightning-input>
+
+            <div class="slds-text-align_center slds-text-body_regular slds-p-around_medium">
+                Sed et dignissim tellus, quis tristique sapien. Morbi ac justo non magna fringilla lobortis. Nulla facilisi. Donec gravida consectetur nunc eget blandit. In hac habitasse platea dictumst, <br/> please review our Privacy Policy.
+                Vestibulum suscipit velit purus, sed efficitur augue varius id. Phasellus sed mattis sapien. Nulla nibh magna, cursus id tincidunt eget, rutrum in nibh.
+            </div>
+
+
+            <lightning-button label="Submit" variant="Brand" onclick={submitForm}>
+            </lightning-button>
+
+        </div>
+    </template>
+
+    <template if:true={showNotification} style="margin-top: 40%">
+        <div class="slds-m-vertical_medium slds-text-heading_large slds-align_absolute-center slds-p-top_large">
+            Your message was sent! <br/>
+        </div>
+
+        <div class=slds-align_absolute-center>We'll be in touch with you as soon as possible.</div>
+
+        <div class="slds-align_absolute-center slds-p-top_medium">
+            <a href="https://google.com" class="link">
+                <lightning-button label='Return to Homepage'></lightning-button>
+            </a>
+        </div>
+
+    </template>
+</template>
